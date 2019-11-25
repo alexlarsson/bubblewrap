@@ -1107,7 +1107,7 @@ setup_newroot (bool unshare_pid,
           if (ensure_dir (dest, 0755) != 0)
             die_with_error ("Can't mkdir %s", op->dest);
 
-          if (unshare_pid)
+          if (unshare_pid || opt_pidns_fd)
             {
               /* Our own procfs */
               privileged_op (privileged_op_socket,
